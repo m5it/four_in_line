@@ -29,22 +29,11 @@ A complete terminal-based Connect Four game in Python with AI opponents, save/lo
 - Auto-save every 5 moves
 - Corruption-resistant (atomic writes, validation)
 
-## Installation
-
-```bash
-git clone <repository>
-cd four_in_line
-python -m four_in_line.main
-```
-
 ## Quick Start
 
 ```bash
 # Run the game
-python -m four_in_line.main
-
-# Or directly
-python four_in_line/main.py
+python main.py
 ```
 
 ## How to Play
@@ -65,31 +54,28 @@ python four_in_line/main.py
 ## Project Structure
 
 ```
-four_in_line/
-├── __init__.py          # Package initialization
-├── board.py             # 7x6 grid, win detection
-├── player.py            # Human player input
-├── ai.py                # AI with 3 difficulty levels
-├── game.py              # Game loop, save/load
-├── main.py              # Entry point, menus, UI
-└── README.md            # This file
+1/
+├── __init__.py    # Package initialization
+├── board.py       # 7x6 grid, win detection
+├── player.py      # Human player input
+├── ai.py          # AI with 3 difficulty levels
+├── game.py        # Game loop, save/load
+├── main.py        # Entry point, menus, UI
+├── test_*.py      # Test suite (7 test files)
+└── README.md      # This file
 ```
 
 ## Testing
 
-Run all tests:
 ```bash
-# Board tests
-python four_in_line/board.py
-
-# AI tests
-python four_in_line/test_ai.py
-
-# Save/load tests  
-python four_in_line/test_save_load.py
-
-# Integration tests
-python four_in_line/test_integration.py
+python board.py          # Board tests
+python test_ai.py        # AI tests
+python test_game.py      # Game tests
+python test_player.py    # Player tests
+python test_save_load.py # Save/load tests
+python test_integration.py # Integration tests
+python test_ui.py        # UI tests
+python test_game_flows.py # Game flow tests
 ```
 
 ## Technical Details
@@ -111,7 +97,7 @@ Minimax with Alpha-Beta Pruning
 ```json
 {
   "version": "1.0",
-  "board": [[0, 0, ...], ...],  // 6x7 grid
+  "board": [[0, 0, ...], ...],
   "current_player": 0,
   "move_count": 15,
   "move_history": [...],
@@ -131,7 +117,3 @@ Tested on:
 - Linux (primary)
 - macOS
 - Windows (with ANSI support)
-
-## License
-
-MIT License - Free to use, modify, distribute
